@@ -37,6 +37,9 @@ if __name__ == "__main__":
                     broadcast_data(sock, "Client (%s, %s) is offline" % addr)
                     print "Client (%s, %s) is offline" % addr
                     sock.close()
-                    CONNECTION_LIST.remove(sock)
-                    continue
+                    try:
+                        CONNECTION_LIST.remove(sock)
+                        continue
+                    except:
+                        pass
     server_socket.close()
